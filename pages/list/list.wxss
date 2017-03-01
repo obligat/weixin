@@ -1,0 +1,43 @@
+.list-title {
+  text-align: center;
+  font-size: 50rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 10rpx auto;
+  border-bottom: 1px solid black;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid black;
+  padding: 20rpx;
+}
+
+.list-item > image {
+  flex-shrink: 0;
+  height: 200rpx;
+  width: 150rpx;
+  margin-right: 20rpx;
+}
+
+.list-item > view {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 34rpx;
+}
+
+.list-item > view  text {
+  padding:  5rpx;
+}
+
+.original_title {
+  font-size: 30rpx;
+}
+

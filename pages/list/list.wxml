@@ -1,0 +1,16 @@
+<view>
+  <view class="list-title">
+    <text>{{title}}</text>
+  </view>
+  <view class="list" wx:for="{{list}}">
+    <view class="list-item">
+      <image src="{{item.images.small}}"></image>
+      <view>
+        <text>{{item.title}}\n</text>
+        <text class="original_title">{{item.original_title}}({{item.year}})\n</text>
+        <text>导演: {{item.directors[0].name}}\n</text>
+        <text>评分： {{item.rating.average}}</text>
+      </view>
+    </view>
+  </view>
+</view>

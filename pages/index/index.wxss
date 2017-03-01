@@ -1,0 +1,54 @@
+/**index.wxss**/
+
+.slider swiper {
+  height: 400rpx;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
+
+swiper {
+  height: 200px;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx;
+  justify-content: space-around;
+}
+
+.board-title {
+  text-align: center;
+}
+
+.board-title > text:first-child {
+  font-size: 44rpx;
+  font-weight: bold;
+}
+
+.board-title > text:last-child {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.board-item {
+  display: flex;
+  flex: 1;
+  margin-top: 20rpx;
+  padding: 10rpx;
+  border: 1rpx solid gainsboro;
+  cursor: pointer;
+}
+
+.board-item image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.board-item text {
+  flex: 1;
+  align-self: center;
+}
