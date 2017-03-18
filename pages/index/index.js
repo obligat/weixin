@@ -1,26 +1,49 @@
+
 Page({
     data: {
-        movies: [],
-        imgUrls: ['https://img5.doubanio.com/view/movie_poster_cover/lpst/public/p2411622136.jpg', 'https://img5.doubanio.com/view/movie_poster_cover/lpst/public/p2413341026.jpg', 'https://img1.doubanio.com/view/movie_poster_cover/lpst/public/p2417948347.jpg']
+        open: false,
+        content: '未登录'
     },
-    onLoad() {
-        var _this = this
+    tap_ch: function (e) {
+        if (this.data.open) {
+            this.setData({
+                open: false
+            });
+        } else {
+            this.setData({
+                open: true
+            });
+        }
+    },
+    formSubmit: function (e) {
+        console.log('form发生了submit事件，携带数据为：', e.detail.value)
         wx.request({
-            url: 'https://api.douban.com/v2/movie/coming_soon',
-            data: {},
-            header: { 'content-type': 'json' },
+            url: 'https://wwwxinle.cn/schedule.php',
+            data: {
+                userName: e.detail.value.username,
+                userPassword: e.detail.value.password
+            },
+            method: 'POST',
+            header: {
+                "content-type": "application/x-www-form-urlencoded"
+            },
             success: function (res) {
-                _this.setData({
-                    movies: res.data.subjects
-                })
+                console.log(res)
             },
             fail: function () {
                 console.log('fail')
             },
             complete: function () {
-                console.log('complete')
+
             }
         })
+    },
+    formReset: function () {
+        console.log('form发生了reset事件')
+    },
+
+    onLoad() {
+        console.log('onLoad')
 
     }
 })

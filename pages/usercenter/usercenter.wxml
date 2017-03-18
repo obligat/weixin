@@ -1,0 +1,18 @@
+
+<!--pages/usercenter/usercenter.wxml-->
+<view class="index-bottom">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view>
+      <view>学号</view>
+      <input name="username" placeholder="请输入学号(如S12345678)" />
+    </view>
+    <view>
+      <view>密码</view>
+      <input name="password" password="true" placeholder="请输入密码" />
+    </view>
+    <view>
+      <button formType="submit" size="mini">提交</button>
+      <button formType="reset" size="mini">取消</button>
+    </view>
+  </form>
+</view>

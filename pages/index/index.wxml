@@ -1,37 +1,25 @@
-
-<!--index.wxml-->
 <view>
-  <view class="slide">
-    <swiper indicator-dots="true" autoplay="true" interval="5000" duration="1000">
-      <block wx:for="{{imgUrls}}">
-        <swiper-item>
-          <image src="{{item}}" class="slide-image" mode="aspectFill" />
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
-  <view class="board">
-    <view class="board-title">
-      <text>豆瓣电影榜单集合\n</text>
-      <text>最新、最牛的影视信息收集~</text>
+  <include src="../usercenter/usercenter.wxml" />
+  <view class="index {{open ? 'c-state1' : ''}}">
+    <view class="index-item">
+      <view>
+        <image bindtap="tap_ch" src="../images/menuIcon.png"></image>
+      </view>
+      <view>
+        <input placeholder="图书查询" auto-focus/>
+      </view>
+      <view>
+        <button type="default" size="mini" hover-class="other-button-hover"> 搜索 </button>
+      </view>
     </view>
-    <navigator url="../list/list?type=in_theaters&title=正在热映">
-      <view class="board-item">
-        <text>正在热映</text>
-        <image src="../images/arrowright.png" mode="aspectFill" />
-      </view>
-    </navigator>
-    <navigator url="../list/list?type=coming_soon&title=即将上映">
-      <view class="board-item">
-        <text>即将上映</text>
-        <image src="../images/arrowright.png" mode="aspectFill" />
-      </view>
-    </navigator>
-    <navigator url="../list/list?type=top250&title=Top250">
-      <view class="board-item">
-        <text>Top250</text>
-        <image src="../images/arrowright.png" mode="aspectFill" />
-      </view>
-    </navigator>
+    <view class="index-item">
+      <button type="default" size="mini" hover-class="other-button-hover"> 查成绩 </button>
+      <button type="default" size="mini" hover-class="other-button-hover"> 考试安排 </button>
+      <button type="default" size="mini" hover-class="other-button-hover"> 无课教室 </button>
+      <button type="default" size="mini" hover-class="other-button-hover"> 西邮黄页 </button>
+    </view>
+    <view class="index-item">
+      和蔼
+    </view>
   </view>
 </view>

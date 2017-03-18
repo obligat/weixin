@@ -1,12 +1,29 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/list/list"
+    "pages/news/news",
+    "pages/usercenter/usercenter",
+    "pages/list/list",
+    "pages/more/more"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000",
-    "navigationBarTitleText": "movie",
-    "navigationBarTextStyle":"white"
+    "navigationBarTitleText": "畅校园",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },{
+        "pagePath": "pages/news/news",
+        "text":"资讯"
+      },{
+        "pagePath":"pages/more/more",
+        "text":"更多"
+      }
+    ]
   }
 }
