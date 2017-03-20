@@ -19,7 +19,51 @@
       <button type="default" size="mini" hover-class="other-button-hover"> 西邮黄页 </button>
     </view>
     <view class="index-item">
-      和蔼
+      <view wx:if="{{!courseMessage}}">
+        <form bindsubmit="formSubmit" bindreset="formReset">
+          <view>
+            <view>学号</view>
+            <input name="username" placeholder="请输入学号(如02142018)" />
+          </view>
+          <view>
+            <view>密码</view>
+            <input name="password" password="true" placeholder="请输入密码(默认学号后六位)" />
+          </view>
+          <view>
+            <button formType="submit" size="mini">提交</button>
+            <button formType="reset" size="mini">取消</button>
+          </view>
+        </form>
+      </view>
+      <block wx:else>
+        <view class="h1">今日课程</view>
+        <button bindtap="clearStorage" size="mini">取消</button>
+        <swiper indicator-dots="true" indicator-active-color="#000000" circular="true">
+          <block wx:for="{{courseMessage}}" wx:for-item="week" wx:for-index="day" wx:key="num">
+            <swiper-item>
+              <view class="h2">星期{{week[4].num}}</view>
+              <view class="table">
+                <view class="tr">
+                  <view class="th">\</view>
+                  <view class="th">课程</view>
+                  <view class="th">教室</view>
+                  <view class="th">教师</view>
+                </view>
+                <block wx:for="{{week}}" wx:key="*this">
+                  <block wx:if="{{index < 4}}">
+                    <view class="tr">
+                      <view class="th">{{2*index+1}}--{{2*index+2}}</view>
+                      <view class="th">{{item.S_Name}}</view>
+                      <view class="th">{{item.RoomNum}}</view>
+                      <view class="th">{{item.Teach_Name}}</view>
+                    </view>
+                  </block>
+                </block>
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </block>
     </view>
   </view>
 </view>
