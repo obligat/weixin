@@ -1,10 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/news/news",
     "pages/usercenter/usercenter",
-    "pages/list/list",
-    "pages/more/more"
+    "pages/list/list"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,11 +16,8 @@
         "pagePath": "pages/index/index",
         "text": "首页"
       },{
-        "pagePath": "pages/news/news",
-        "text":"资讯"
-      },{
-        "pagePath":"pages/more/more",
-        "text":"更多"
+        "pagePath":"pages/usercenter/usercenter",
+        "text":"我的"
       }
     ]
   }

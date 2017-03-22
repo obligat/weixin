@@ -1,18 +1,25 @@
 
 <!--pages/usercenter/usercenter.wxml-->
-<view class="index-bottom">
+<view class="page">
   <form bindsubmit="formSubmit" bindreset="formReset">
-    <view>
-      <view>学号</view>
-      <input name="username" placeholder="请输入学号(如S12345678)" />
-    </view>
-    <view>
-      <view>密码</view>
-      <input name="password" password="true" placeholder="请输入密码" />
-    </view>
-    <view>
-      <button formType="submit" size="mini">提交</button>
-      <button formType="reset" size="mini">取消</button>
+    <view class="input-box">
+      <view class="input-item">
+        <view class="error-message" wx:if="{{!isValidUsername}}"> 学号应为8位数字</view>
+        <view class="error-message" wx:elif="{{isValidLogin != null}}">{{isValidLogin}}</view>
+      </view>
+      <view class="input-item">
+        <view>学号</view>
+        <input name="username" placeholder="请输入学号" palceholder-class="placeholder" bindinput="bindKeyInput" />
+      </view>
+      <view class="input-item">
+        <view> 密码</view>
+        <input name="password" password="true" placeholder="请输入密码" palceholder-class="placeholder" />
+      </view>
+      <view class="input-item">
+        <button formType="submit" size="mini" plain="true" hover-class="button-hover">确定</button>
+      </view>
     </view>
   </form>
+  <button bindtap="clearStorage" size="mini">清除课程表</button>
+  <button bindtap="clearUserStorage" size="mini">清除用户信息</button>
 </view>
