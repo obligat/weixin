@@ -2,17 +2,17 @@
   <view class="index">
     <view class="index-item">
       <view>
-        <input placeholder="图书查询" auto-focus/>
+        <input placeholder="图书查询" auto-focus bindinput="bindSearchInput"/>
       </view>
       <view>
-        <button type="default" size="mini" hover-class="other-button-hover"> 搜索 </button>
+        <button type="default" size="mini" hover-class="other-button-hover" bindtap="searchBook"> 搜索 </button>
       </view>
     </view>
     <view class="index-item">
       <button type="default" size="mini" hover-class="other-button-hover"> 查成绩 </button>
-      <button type="default" size="mini" hover-class="other-button-hover"> 考试安排 </button>
       <button type="default" size="mini" hover-class="other-button-hover"> 无课教室 </button>
       <button type="default" size="mini" hover-class="other-button-hover"> 西邮黄页 </button>
+      <button type="default" size="mini" hover-class="other-button-hover"> 借阅查询 </button>
     </view>
     <view class="index-item">
       <view class="info" wx:if="{{!courseMessage}}">
@@ -32,7 +32,7 @@
                   <view class="th">教室</view>
                   <view class="th">教师</view>
                 </view>
-                <block wx:for="{{week}}" wx:key="*this">
+                <block wx:for="{{week}}" wx:key="">
                   <block wx:if="{{index < 4}}">
                     <view class="tr">
                       <view class="th">{{2*index+1}}--{{2*index+2}}</view>

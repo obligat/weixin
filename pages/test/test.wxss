@@ -1,0 +1,15 @@
+/* pages/test/test.wxss */
+
+.test {
+  position: relative;
+}
+
+image {
+  position: absolute;
+  /*left: 674rpx;*/
+}
+
+/*image:nth-child(1) {
+  left: 74rpx;
+  transform: scaleY(1.2);
+}*/

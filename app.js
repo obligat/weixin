@@ -1,51 +1,103 @@
 //app.js
 App({
   onLaunch: function () {
-    //调用API从本地缓存中获取数据
-    // var logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
-  },
 
+    wx.getSystemInfo({
+      success: function (res) {
+        wx.setStorageSync('modelMessage',res)
+        console.log(wx.getStorageSync('modelMessage'))
+      }
+    })
+
+    // wx.checkSession({
+    //   success: function () {
+
+    //   },
+    //   fail: function () {
+    //     wx.login({
+    //       success: function (e) {
+    //         var code = e.code
+    //         if (code) {
+    //           wx.request({
+    //             url: 'https://wwwxinle.cn/wechatapp/get_session.php',
+    //             data: {
+    //               code: e.code
+    //             },
+    //             method: 'POST',
+    //             header: {
+    //               "content-type": "application/x-www-form-urlencoded"
+    //             },
+    //             success: function (res) {
+    //               console.log('cccccccccccccccc ')
+    //               console.log(res)
+    //               wx.setStorageSync('session_3rd', res.data.session_3rd)
+    //             },
+    //             fail: function () {
+    //               console.log("fail")
+    //             }
+    //           })
+
+    //         } else {
+    //           console.log('获取用户登录态失败！' + res.errMsg)
+    //         }
+    //       }
+    //     })
+    //   }
+    // })
+
+  },
 
   getUserInfo: function (cb) {
-    var that = this
+    var that = this;
+    console.log("in app getUserInfo")
+    console.log(this.globalData.userInfo)
+    console.log(cb)
     if (this.globalData.userInfo) {
-
+      typeof cb == "function" && cb(this.globalData.userInfo)
     } else {
+      wx.login({
+        success: function (e) {
+          var code = e.code
+          if (code) {
+            wx.request({
+              url: 'https://wwwxinle.cn/wechatapp/get_session.php',
+              data: {
+                code: e.code
+              },
+              method: 'POST',
+              header: {
+                "content-type": "application/x-www-form-urlencoded"
+              },
+              success: function (res) {
+                console.log('wx wxgetUserInfo wwww ')
+
+                wx.setStorageSync('session_3rd', res.data.session_3rd)
+              },
+              fail: function () {
+                console.log("fail")
+              }
+            })
+
+          } else {
+            console.log('获取用户登录态失败！' + res.errMsg)
+          }
+
+          wx.getUserInfo({
+            success: function (res) {
+              console.log('wxgetUserInfo successd........')
+
+              that.globalData.userInfo = res.userInfo
+              typeof cb == "function" && cb(that.globalData.userInfo)
+            }
+          })
+
+        }
+      });
 
     }
+
   },
 
-
-  // getUserInfo: function (cb) {
-  //   var that = this;
-  //   if (this.globalData.userInfo) {
-  //     typeof cb == "function" && cb(this.globalData.userInfo)
-  //   } else {
-  //     //调用登录接口
-
-  //     wx.login({
-  //       success: function (e) {
-  //         console.log('wxlogin successd........' + e)
-  //         var code = e.code
-  //         if (code) {
-  //           //发起网络请求
-  //           console.log("code" + code)
-  //           wx.getUserInfo({
-  //             success: function (res) {
-  //               console.log('wxgetUserInfo successd........' + res);
-  //               var encryptedData = encodeURIComponent(res.encryptedData)
-  //             }
-  //           })
-  //         } else {
-  //           console.log('获取用户登录态失败！' + res.errMsg)
-  //         }
-  //       }
-  //     });
-
-  //   }
-  // },
   globalData: {
     hasLogin: false,
     userInfo: null

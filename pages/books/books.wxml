@@ -1,0 +1,23 @@
+
+<!--pages/books/books.wxml-->
+<view class="books">
+  <view class="search-box">
+    <view>
+      <input placeholder="图书查询" auto-focus bindinput="bindSearchInput" />
+    </view>
+    <view>
+      <button type="default" size="mini" hover-class="other-button-hover" bindtap="searchBook"> 搜索 </button>
+    </view>
+  </view>
+  <view class="book-list">
+    <block wx:for="{{bookMsg.books}}" wx:key="searchId">
+      <navigator url="../detail/detail?title={{item.title}}&author={{item.author}}&isbn={{item.isbn}}&allNum={{item.allNum}}&on={{item.on}}&press={{item.press}}&year={{item.year}}&searchId={{item.searchId}}" hover-class="navigator-hover">
+        <view class="book-item">
+          <view>{{item.title}}</view>
+          <view>{{item.author}}</view>
+          <view>{{item.year}}</view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>

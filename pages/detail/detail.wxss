@@ -1,0 +1,7 @@
+/* pages/detail/detail.wxss */
+
+
+.cover{
+    width: 210rpx;
+    height: 280rpx;
+}

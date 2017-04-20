@@ -1,0 +1,17 @@
+
+<!--pages/detail/detail.wxml-->
+<view class="classname">
+  <view class="cover">
+    <image src="{{image?image:'../images/cover.png'}}" style=" width: 210rpx; height: 280rpx; " mode="aspectFill "></image>
+  </view>
+  <view class="detail">
+    <view class="item">名称：{{bookDetail.title}}</view>
+    <view class="item">ISBN：{{bookDetail.isbn}}</view>
+    <view class="item">索书号：{{bookDetail.searchId}}</view>
+    <view class="item">共{{bookDetail.allNum}}本，{{bookDetail.on}}本可借</view>
+    <view class="item">作者：{{bookDetail.author}}</view>
+    <view class="item">出版社：{{bookDetail.press}}</view>
+    <view class="item">出版时间：{{bookDetail.year}}</view>
+    <view class="summary">简介：{{summary ? summary : '暂无简介'}}</view>
+  </view>
+</view>

@@ -1,7 +1,6 @@
 /**app.wxss**/
 
 navigator {
-  color: blue;
   padding: 10rpx;
 }
 

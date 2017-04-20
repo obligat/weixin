@@ -1,8 +1,12 @@
 {
   "pages": [
+    "pages/test/test",
     "pages/index/index",
     "pages/usercenter/usercenter",
-    "pages/list/list"
+    "pages/list/list",
+    "pages/books/books",
+    "pages/detail/detail",
+    "pages/weixin/weixin"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -15,9 +19,18 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页"
-      },{
-        "pagePath":"pages/usercenter/usercenter",
-        "text":"我的"
+      },
+      {
+        "pagePath": "pages/weixin/weixin",
+        "text": "我的"
+      },
+      {
+        "pagePath": "pages/usercenter/usercenter",
+        "text": "查课表"
+      },
+      {
+        "pagePath": "pages/test/test",
+        "text": "text"
       }
     ]
   }

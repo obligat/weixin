@@ -1,0 +1,8 @@
+
+<!--pages/test/test.wxml-->
+<view class="test" bindtouchstart='handleTouchStart' bindtouchend="handleTouchEnd" bindtouchmove='handleTouchMove'>
+  <block wx:for="{{imageUrl}}" wx:key='index'>
+    <image src="{{item}}" animation="{{index===current?animationData:''}}" style=" border:1px solid black;width:{{initPlace[2] - initPlace[1]*10}}px;display:inline-block; left:{{index==0 ? initPlace[1]*9:initPlace[2]}}px;">
+    </image>
+  </block>
+</view>
